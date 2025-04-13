@@ -1,0 +1,25 @@
+PROGRAM Start_Stop
+  VAR
+    PB1 AT %QX0.1 : BOOL := FALSE;
+    PB2 AT %QX0.2 : BOOL := FALSE;
+    PB3 AT %QX0.3 : BOOL := FALSE;
+    MIST AT %QX0.5 : BOOL;
+    PB4 AT %QX0.4 : BOOL := FALSE;
+    DHP AT %QX0.0 : BOOL;
+    LEDOutput AT %QW0 : INT;
+    LEDIntensity AT %MW0 : INT := 0;
+  END_VAR
+
+  DHP := NOT(PB2) AND (DHP OR PB1);
+  MIST := NOT(PB4) AND (MIST OR PB3);
+  LEDOutput := LEDIntensity;
+END_PROGRAM
+
+
+CONFIGURATION Config0
+
+  RESOURCE Res0 ON PLC
+    TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
+    PROGRAM instance0 WITH task0 : Start_Stop;
+  END_RESOURCE
+END_CONFIGURATION
