@@ -1,13 +1,13 @@
 PROGRAM Start_Stop
   VAR
-    PB1 AT %QX0.1 : BOOL := FALSE;
-    PB2 AT %QX0.2 : BOOL := FALSE;
-    PB3 AT %QX0.3 : BOOL := FALSE;
-    MIST AT %QX0.5 : BOOL;
-    PB4 AT %QX0.4 : BOOL := FALSE;
-    DHP AT %QX0.0 : BOOL;
+    PB1 AT %QX1.1 : BOOL := FALSE;
+    PB2 AT %QX1.2 : BOOL := FALSE;
+    PB3 AT %QX1.3 : BOOL := FALSE;
+    MIST AT %QX1.5 : BOOL;
+    PB4 AT %QX1.4 : BOOL := FALSE;
+    DHP AT %QX1.0 : BOOL;
     LEDOutput AT %QW0 : INT;
-    LEDIntensity AT %MW0 : INT := 0;
+    LEDIntensity AT %MW3 : INT := 0;
   END_VAR
 
   DHP := NOT(PB2) AND (DHP OR PB1);
