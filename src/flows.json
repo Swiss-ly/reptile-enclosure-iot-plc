@@ -942,11 +942,11 @@
         "topic": "topic",
         "topicType": "msg",
         "min": 0,
-        "max": "5",
-        "step": "0.1",
+        "max": "1023",
+        "step": "0",
         "className": "",
-        "x": 270,
-        "y": 1000,
+        "x": 110,
+        "y": 940,
         "wires": [
             [
                 "70f77b536e5d15a2"
@@ -963,59 +963,7 @@
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Potentiometer to simulate LDR",
-        "label": "Volts",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "5",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 850,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "70f77b536e5d15a2",
-        "type": "function",
-        "z": "0ecdcae38ddc3783",
-        "name": "function 1",
-        "func": "var msg1 = {payload: msg.payload.toString()};\nvar msg2 = {payload: (msg.payload*350).toString()};\nreturn [msg1, msg2];",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 1000,
-        "wires": [
-            [
-                "5840e7f5de411578"
-            ],
-            [
-                "b40aae61418ea0cf",
-                "e5cd0fa9bae95eed",
-                "2d92f1c7145b8885"
-            ]
-        ]
-    },
-    {
-        "id": "b40aae61418ea0cf",
-        "type": "ui_gauge",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "group": "73f95eaa3fdde931",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Digital Value",
+        "title": "Digital Value from ADC",
         "label": "",
         "format": "{{value}}",
         "min": 0,
@@ -1029,25 +977,31 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 790,
-        "y": 1000,
+        "x": 660,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "e5cd0fa9bae95eed",
-        "type": "debug",
+        "id": "70f77b536e5d15a2",
+        "type": "function",
         "z": "0ecdcae38ddc3783",
-        "name": "debug 4",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 1040,
-        "wires": []
+        "name": "Duty Cycle",
+        "func": "var msg1 = {payload: msg.payload.toString()};\n\nlet val = msg.payload\nlet dutyCycle= (1-(val-454)/(990-454))*100; //Scales ADC value between 0-100 for PWM duty cycle.\nif (dutyCycle < 10) {\n    dutyCycle = 0; // Fully Off\n} else if (dutyCycle > 90) {\n    dutyCycle = 100; // Fully On\n}\n\nlet plcValue = Math.round(dutyCycle);\n\nplcValue = {payload: plcValue};\nreturn [msg1, plcValue];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 940,
+        "wires": [
+            [
+                "5840e7f5de411578"
+            ],
+            [
+                "2d92f1c7145b8885"
+            ]
+        ]
     },
     {
         "id": "2d92f1c7145b8885",
@@ -1066,10 +1020,12 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 800,
-        "y": 1080,
+        "x": 900,
+        "y": 1040,
         "wires": [
-            [],
+            [
+                "913b0473951f9776"
+            ],
             []
         ]
     },
@@ -1080,7 +1036,7 @@
         "name": "This is for testing purposes",
         "info": "",
         "x": 1050,
-        "y": 1000,
+        "y": 920,
         "wires": []
     },
     {
@@ -1094,8 +1050,8 @@
         "showErrors": false,
         "showWarnings": true,
         "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "3",
+        "dataType": "Coil",
+        "adr": "0",
         "quantity": "10",
         "rate": "500",
         "rateUnit": "ms",
@@ -1106,32 +1062,15 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 310,
-        "y": 1160,
+        "x": 130,
+        "y": 1220,
         "wires": [
             [
-                "7a1dd703d61eb371",
-                "57334a27243b71e8"
+                "57334a27243b71e8",
+                "6f54a1c00d216f0b"
             ],
             []
         ]
-    },
-    {
-        "id": "7a1dd703d61eb371",
-        "type": "ui_text",
-        "z": "0ecdcae38ddc3783",
-        "group": "73f95eaa3fdde931",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Modbus response",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 570,
-        "y": 1140,
-        "wires": []
     },
     {
         "id": "57334a27243b71e8",
@@ -1145,8 +1084,156 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 360,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "e4a29095732ad818",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Counter",
+        "func": "let counter = context.get('counter') || 0;\n\ncounter += 1;\nif (counter >= 100) {\n    counter = 0;\n};\n\ncontext.set('counter',counter)\nmsg = {payload:counter};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1120,
+        "wires": [
+            [
+                "784351da31a3a993"
+            ]
+        ]
+    },
+    {
+        "id": "784351da31a3a993",
+        "type": "modbus-write",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "4",
+        "quantity": "1",
+        "server": "687271a22ceb2cba",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 1000,
+        "y": 1120,
+        "wires": [
+            [
+                "47cd8595b5d90da8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "47cd8595b5d90da8",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "cc3180a326a2bc58",
+        "type": "inject",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 1120,
+        "wires": [
+            [
+                "e4a29095732ad818"
+            ]
+        ]
+    },
+    {
+        "id": "913b0473951f9776",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "6f54a1c00d216f0b",
+        "type": "ui_led",
+        "z": "0ecdcae38ddc3783",
+        "order": 7,
+        "group": "73f95eaa3fdde931",
+        "width": 0,
+        "height": 0,
+        "label": "PWM LED",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 470,
         "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "1a088308c63c700b",
+        "type": "comment",
+        "z": "0ecdcae38ddc3783",
+        "name": "Reads PWM LED Output",
+        "info": "",
+        "x": 670,
+        "y": 1220,
         "wires": []
     },
     {

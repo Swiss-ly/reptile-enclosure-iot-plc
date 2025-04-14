@@ -6,13 +6,21 @@ PROGRAM Start_Stop
     MIST AT %QX1.5 : BOOL;
     PB4 AT %QX1.4 : BOOL := FALSE;
     DHP AT %QX1.0 : BOOL;
-    LEDOutput AT %QW0 : INT;
-    LEDIntensity AT %MW3 : INT := 0;
+    LEDOutput AT %QX0.0 : BOOL;
+    DutyCycle AT %MW3 : INT := 0;
+    pwmcounter AT %MW4 : INT := 0;
+  END_VAR
+  VAR
+    _TMP_LT21_OUT : BOOL;
+    _TMP_GE22_OUT : BOOL;
   END_VAR
 
   DHP := NOT(PB2) AND (DHP OR PB1);
   MIST := NOT(PB4) AND (MIST OR PB3);
-  LEDOutput := LEDIntensity;
+  _TMP_LT21_OUT := LT(pwmcounter, DutyCycle);
+  LEDOutput := _TMP_LT21_OUT;
+  _TMP_GE22_OUT := GE(pwmcounter, DutyCycle);
+  LEDOutput := NOT(_TMP_GE22_OUT);
 END_PROGRAM
 
 
