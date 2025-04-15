@@ -152,7 +152,7 @@
     {
         "id": "7545ac8528b1c492",
         "type": "ui_group",
-        "name": "Default",
+        "name": "Snake Enclosure Status",
         "tab": "bc87e5c3527dec05",
         "order": 1,
         "disp": true,
@@ -215,23 +215,34 @@
         "sessionExpiry": ""
     },
     {
-        "id": "73f95eaa3fdde931",
-        "type": "ui_group",
-        "name": "Test",
-        "tab": "da3a6916b75636b7",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "da3a6916b75636b7",
         "type": "ui_tab",
         "name": "LDR Output",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "f38330cb9552c678",
+        "type": "ui_group",
+        "name": "Manual Override",
+        "tab": "bc87e5c3527dec05",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2983030b5eec8e8",
+        "type": "ui_group",
+        "name": "Other",
+        "tab": "bc87e5c3527dec05",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
     },
     {
         "id": "a055b2a914152665",
@@ -399,7 +410,7 @@
         "type": "ui_button",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "group": "7545ac8528b1c492",
+        "group": "f38330cb9552c678",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -453,7 +464,7 @@
         "type": "ui_button",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "group": "7545ac8528b1c492",
+        "group": "f38330cb9552c678",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -553,7 +564,8 @@
         "y": 420,
         "wires": [
             [
-                "4a39f5b3d37ab9dc"
+                "4a39f5b3d37ab9dc",
+                "2b1579bbc151cd9b"
             ],
             []
         ]
@@ -663,7 +675,7 @@
         "type": "ui_button",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "group": "7545ac8528b1c492",
+        "group": "f38330cb9552c678",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -771,7 +783,7 @@
         "type": "ui_button",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "group": "7545ac8528b1c492",
+        "group": "f38330cb9552c678",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -848,7 +860,7 @@
         "type": "ui_button",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "group": "7545ac8528b1c492",
+        "group": "f38330cb9552c678",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -931,9 +943,9 @@
         "type": "ui_slider",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "label": " ",
+        "label": " LED Override",
         "tooltip": "",
-        "group": "73f95eaa3fdde931",
+        "group": "f38330cb9552c678",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -945,7 +957,7 @@
         "max": "1023",
         "step": "0",
         "className": "",
-        "x": 110,
+        "x": 140,
         "y": 940,
         "wires": [
             [
@@ -958,7 +970,7 @@
         "type": "ui_gauge",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "group": "73f95eaa3fdde931",
+        "group": "e2983030b5eec8e8",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -986,7 +998,7 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "Duty Cycle",
-        "func": "var msg1 = {payload: msg.payload.toString()};\n\nlet val = msg.payload\nlet dutyCycle= (1-(val-454)/(990-454))*100; //Scales ADC value between 0-100 for PWM duty cycle.\nif (dutyCycle < 10) {\n    dutyCycle = 0; // Fully Off\n} else if (dutyCycle > 90) {\n    dutyCycle = 100; // Fully On\n}\n\nlet plcValue = Math.round(dutyCycle);\n\nplcValue = {payload: plcValue};\nreturn [msg1, plcValue];",
+        "func": "var msg1 = {payload: msg.payload.toString()};\n\nlet val = msg.payload\nlet dutyCycle= (1-(val-454)/(990-454))*100; //Scales ADC value between 0-100 for PWM duty cycle.\nif (dutyCycle < 10) {\n    dutyCycle = 0; // Fully Off\n} else if (dutyCycle > 90) {\n    dutyCycle = 100; // Fully On\n}\n\nlet plcValue = Math.round(dutyCycle);\n\nplcValue = { payload: plcValue};\nreturn [msg1, plcValue];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -999,7 +1011,8 @@
                 "5840e7f5de411578"
             ],
             [
-                "2d92f1c7145b8885"
+                "2d92f1c7145b8885",
+                "0deb8a7f39a18b81"
             ]
         ]
     },
@@ -1011,9 +1024,9 @@
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
-        "unitid": "",
+        "unitid": "1",
         "dataType": "HoldingRegister",
-        "adr": "3",
+        "adr": "19",
         "quantity": "1",
         "server": "687271a22ceb2cba",
         "emptyMsgOnFail": false,
@@ -1050,10 +1063,10 @@
         "showErrors": false,
         "showWarnings": true,
         "unitid": "",
-        "dataType": "Coil",
-        "adr": "0",
+        "dataType": "HoldingRegister",
+        "adr": "19",
         "quantity": "10",
-        "rate": "500",
+        "rate": "50",
         "rateUnit": "ms",
         "delayOnStart": false,
         "startDelayTime": "",
@@ -1066,8 +1079,7 @@
         "y": 1220,
         "wires": [
             [
-                "57334a27243b71e8",
-                "6f54a1c00d216f0b"
+                "57334a27243b71e8"
             ],
             []
         ]
@@ -1142,41 +1154,13 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 1280,
         "y": 1120,
         "wires": []
-    },
-    {
-        "id": "cc3180a326a2bc58",
-        "type": "inject",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 1120,
-        "wires": [
-            [
-                "e4a29095732ad818"
-            ]
-        ]
     },
     {
         "id": "913b0473951f9776",
@@ -1191,39 +1175,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1200,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "6f54a1c00d216f0b",
-        "type": "ui_led",
-        "z": "0ecdcae38ddc3783",
-        "order": 7,
-        "group": "73f95eaa3fdde931",
-        "width": 0,
-        "height": 0,
-        "label": "PWM LED",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 470,
-        "y": 1200,
+        "x": 1180,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1235,6 +1188,72 @@
         "x": 670,
         "y": 1220,
         "wires": []
+    },
+    {
+        "id": "2b1579bbc151cd9b",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0deb8a7f39a18b81",
+        "type": "ui_gauge",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "group": "7545ac8528b1c492",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "LED brightness",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#007ef5",
+            "#00c220",
+            "#f0f320"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 580,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "cb23c587bcc60d55",
+        "type": "http request",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "https://example.com/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 350,
+        "y": 1380,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "30c3335137764428",
