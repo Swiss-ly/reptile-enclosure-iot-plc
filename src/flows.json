@@ -259,8 +259,8 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 130,
-        "y": 100,
+        "x": 450,
+        "y": 160,
         "wires": [
             [
                 "f41f7cd473649f9a"
@@ -280,7 +280,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
+        "x": 820,
         "y": 280,
         "wires": []
     },
@@ -301,7 +301,7 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 480,
+        "x": 640,
         "y": 220,
         "wires": [
             [
@@ -366,8 +366,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 570,
-        "y": 100,
+        "x": 890,
+        "y": 160,
         "wires": []
     },
     {
@@ -389,12 +389,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 100,
+        "x": 680,
+        "y": 160,
         "wires": [
             [
-                "6d6c056a06643345",
-                "58fe4f094da22623"
+                "6d6c056a06643345"
             ]
         ]
     },
@@ -405,8 +404,8 @@
         "name": "",
         "group": "f38330cb9552c678",
         "order": 0,
-        "width": 0,
-        "height": 0,
+        "width": "3",
+        "height": "2",
         "passthru": false,
         "label": "DHP Off",
         "tooltip": "",
@@ -414,15 +413,16 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "mDHPoff",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "",
+        "topicType": "str",
         "x": 100,
         "y": 220,
         "wires": [
             [
-                "cadedbd932e52903"
+                "cadedbd932e52903",
+                "58fe4f094da22623"
             ]
         ]
     },
@@ -443,7 +443,7 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 480,
+        "x": 640,
         "y": 320,
         "wires": [
             [
@@ -459,8 +459,8 @@
         "name": "",
         "group": "f38330cb9552c678",
         "order": 0,
-        "width": 0,
-        "height": 0,
+        "width": "3",
+        "height": "2",
         "passthru": false,
         "label": "DHP On",
         "tooltip": "",
@@ -468,15 +468,16 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "mDHPon",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "",
+        "topicType": "str",
         "x": 100,
         "y": 320,
         "wires": [
             [
-                "f184600b83fade61"
+                "f184600b83fade61",
+                "58fe4f094da22623"
             ]
         ]
     },
@@ -497,7 +498,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 280,
+        "x": 440,
         "y": 220,
         "wires": [
             [
@@ -522,7 +523,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 280,
+        "x": 440,
         "y": 320,
         "wires": [
             [
@@ -553,8 +554,8 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 170,
-        "y": 420,
+        "x": 450,
+        "y": 480,
         "wires": [
             [
                 "4a39f5b3d37ab9dc",
@@ -575,7 +576,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
+        "x": 880,
         "y": 600,
         "wires": []
     },
@@ -606,8 +607,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 610,
-        "y": 420,
+        "x": 850,
+        "y": 480,
         "wires": []
     },
     {
@@ -629,12 +630,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 420,
+        "x": 660,
+        "y": 480,
         "wires": [
             [
-                "f0c7f79025fbaa5d",
-                "47d7f9073cb93139"
+                "f0c7f79025fbaa5d"
             ]
         ]
     },
@@ -655,7 +655,7 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 520,
+        "x": 640,
         "y": 640,
         "wires": [
             [
@@ -671,8 +671,8 @@
         "name": "",
         "group": "f38330cb9552c678",
         "order": 0,
-        "width": 0,
-        "height": 0,
+        "width": "3",
+        "height": "2",
         "passthru": false,
         "label": "Mist On",
         "tooltip": "",
@@ -680,15 +680,16 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "mMiston",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 140,
+        "topic": "",
+        "topicType": "str",
+        "x": 100,
         "y": 640,
         "wires": [
             [
-                "ef418cd01086092d"
+                "ef418cd01086092d",
+                "58fe4f094da22623"
             ]
         ]
     },
@@ -709,7 +710,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 320,
+        "x": 440,
         "y": 640,
         "wires": [
             [
@@ -734,7 +735,7 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 520,
+        "x": 640,
         "y": 540,
         "wires": [
             [
@@ -764,7 +765,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 80,
         "y": 580,
         "wires": [
             [
@@ -779,8 +780,8 @@
         "name": "",
         "group": "f38330cb9552c678",
         "order": 0,
-        "width": 0,
-        "height": 0,
+        "width": "3",
+        "height": "2",
         "passthru": false,
         "label": "Mist Off",
         "tooltip": "",
@@ -788,15 +789,16 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "mMistoff",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 140,
+        "topic": "",
+        "topicType": "str",
+        "x": 100,
         "y": 540,
         "wires": [
             [
-                "e9c13b9f3499c8c4"
+                "e9c13b9f3499c8c4",
+                "58fe4f094da22623"
             ]
         ]
     },
@@ -817,7 +819,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 320,
+        "x": 440,
         "y": 540,
         "wires": [
             [
@@ -842,7 +844,7 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 580,
+        "x": 640,
         "y": 760,
         "wires": [
             [],
@@ -856,8 +858,8 @@
         "name": "",
         "group": "f38330cb9552c678",
         "order": 6,
-        "width": 0,
-        "height": 0,
+        "width": "0",
+        "height": "0",
         "passthru": false,
         "label": "Auto Mist Protocol",
         "tooltip": "",
@@ -865,15 +867,16 @@
         "bgcolor": "",
         "className": "",
         "icon": "",
-        "payload": "",
+        "payload": "aMist",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 170,
+        "x": 110,
         "y": 760,
         "wires": [
             [
-                "98c7efeb492d7bdf"
+                "98c7efeb492d7bdf",
+                "58fe4f094da22623"
             ]
         ]
     },
@@ -894,7 +897,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 380,
+        "x": 440,
         "y": 760,
         "wires": [
             [
@@ -903,23 +906,13 @@
         ]
     },
     {
-        "id": "fcf0655f8839effc",
-        "type": "comment",
-        "z": "0ecdcae38ddc3783",
-        "name": "This is for when Humidity drops below threshold",
-        "info": "",
-        "x": 960,
-        "y": 760,
-        "wires": []
-    },
-    {
         "id": "264f169d23d6b595",
         "type": "comment",
         "z": "0ecdcae38ddc3783",
         "name": "Mist Sprayer",
         "info": "",
-        "x": 930,
-        "y": 420,
+        "x": 1070,
+        "y": 640,
         "wires": []
     },
     {
@@ -928,8 +921,8 @@
         "z": "0ecdcae38ddc3783",
         "name": "Deep Heat Projector",
         "info": "",
-        "x": 970,
-        "y": 100,
+        "x": 1070,
+        "y": 280,
         "wires": []
     },
     {
@@ -937,22 +930,22 @@
         "type": "ui_slider",
         "z": "0ecdcae38ddc3783",
         "name": "",
-        "label": " LED Override",
+        "label": " LED Brightness",
         "tooltip": "",
         "group": "f38330cb9552c678",
         "order": 7,
-        "width": 0,
-        "height": 0,
+        "width": "6",
+        "height": "2",
         "passthru": true,
         "outs": "all",
-        "topic": "topic",
-        "topicType": "msg",
-        "min": 0,
+        "topic": "override",
+        "topicType": "str",
+        "min": "454",
         "max": "1023",
         "step": "0",
         "className": "",
-        "x": 140,
-        "y": 940,
+        "x": 300,
+        "y": 900,
         "wires": [
             [
                 "70f77b536e5d15a2"
@@ -973,7 +966,7 @@
         "label": "",
         "format": "{{value}}",
         "min": 0,
-        "max": "1024",
+        "max": "1023",
         "colors": [
             "#00b500",
             "#e6e600",
@@ -983,8 +976,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 660,
-        "y": 880,
+        "x": 640,
+        "y": 920,
         "wires": []
     },
     {
@@ -992,14 +985,14 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "Duty Cycle",
-        "func": "var msg1 = {payload: msg.payload.toString()};\n\nlet val = msg.payload\nlet dutyCycle= (1-(val-454)/(990-454))*100; //Scales ADC value between 0-100 for PWM duty cycle.\nif (dutyCycle < 10) {\n    dutyCycle = 0; // Fully Off\n} else if (dutyCycle > 90) {\n    dutyCycle = 100; // Fully On\n}\n\nlet plcValue = Math.round(dutyCycle);\n\nplcValue = { payload: plcValue};\nreturn [msg1, plcValue];",
+        "func": "let source = msg.topic;\nlet val = msg.payload;\nlet ledState = flow.get(\"LEDState\");\n\nlet dutyCycle = (1 - (val - 454) / (990 - 454)) * 100; //Scales ADC value between 0-100 for PWM duty cycle.\nlet plcValue = Math.round(dutyCycle);\n\nif (plcValue < 10) plcValue  = 0; // Fully Off\nif (plcValue > 90) plcValue  = 100; // Fully On\n\n\nif (ledState == \"manual\" && source == \"override\") {\n    var msg1 = {payload: msg.payload.toString()}; //Remove this after implement auto\n    plcValue = { payload: plcValue};\n    \n    return [msg1, plcValue];\n}\n\nelse if (ledState == \"auto\" && source == \"adc\"){\n    var msg1 = { payload: msg.payload.toString()};   \n    plcValue = { payload: plcValue };\n    \n    return [msg1, plcValue];\n}\nreturn null;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 940,
+        "y": 980,
         "wires": [
             [
                 "5840e7f5de411578"
@@ -1007,7 +1000,8 @@
             [
                 "2d92f1c7145b8885",
                 "0deb8a7f39a18b81",
-                "a1ddb635a004dc13"
+                "a1ddb635a004dc13",
+                "913b0473951f9776"
             ]
         ]
     },
@@ -1028,12 +1022,10 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 900,
-        "y": 1040,
+        "x": 880,
+        "y": 1080,
         "wires": [
-            [
-                "913b0473951f9776"
-            ],
+            [],
             []
         ]
     },
@@ -1041,10 +1033,10 @@
         "id": "1269f31036d131cb",
         "type": "comment",
         "z": "0ecdcae38ddc3783",
-        "name": "This is for testing purposes",
+        "name": "LED",
         "info": "",
-        "x": 1050,
-        "y": 920,
+        "x": 1070,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1108,8 +1100,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1180,
-        "y": 1040,
+        "x": 860,
+        "y": 1180,
         "wires": []
     },
     {
@@ -1134,8 +1126,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 360,
+        "x": 660,
+        "y": 440,
         "wires": []
     },
     {
@@ -1162,8 +1154,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 580,
-        "y": 1060,
+        "x": 560,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1182,34 +1174,11 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 770,
-        "y": 1380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "09ac55734b5c3a6f",
-        "type": "inject",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 310,
-        "y": 1380,
+        "x": 550,
+        "y": 1480,
         "wires": [
             [
-                "03e82a87676f0d10"
+                "5069a4376ee558a7"
             ]
         ]
     },
@@ -1218,35 +1187,16 @@
         "type": "debug",
         "z": "0ecdcae38ddc3783",
         "name": "debug 9",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
+        "x": 760,
         "y": 1480,
         "wires": []
-    },
-    {
-        "id": "03e82a87676f0d10",
-        "type": "function",
-        "z": "0ecdcae38ddc3783",
-        "name": "function 1",
-        "func": "msg.payload = {\n    studentid: 0,\n    nickname: \"Snake Enclosure Status\",\n    temp: 20.2,\n    hum: 43,\n    rain: 0.03,\n    windspeed: 23,\n    winddir: 180,\n    message: \"Test\",\n    valid: true\n};\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 1380,
-        "wires": [
-            [
-                "cb23c587bcc60d55"
-            ]
-        ]
     },
     {
         "id": "a1ddb635a004dc13",
@@ -1259,26 +1209,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 1120,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "47d7f9073cb93139",
-        "type": "function",
-        "z": "0ecdcae38ddc3783",
-        "name": "Mister Last Action Check",
-        "func": "let lastMistState = flow.get(\"mistState\") || 0;\n\nlet currentMistState = msg.payload;\n\nif (currentMistState != lastMistState) {\n    if (currentMistState == 1) {\n        flow.set(\"lastAction\", \"Mister Switched ON\");\n    } else {\n        flow.set(\"lastAction\", \"Mister Switched OFF\");\n    }\n    flow.set(\"mistState\", currentMistState);\n}\nreturn null;",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 480,
+        "x": 560,
+        "y": 1160,
         "wires": [
             [],
             []
@@ -1294,7 +1226,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "5",
+        "repeat": "60",
         "crontab": "",
         "once": true,
         "onceDelay": "1",
@@ -1313,18 +1245,19 @@
         "id": "57ae78f0df8be98a",
         "type": "function",
         "z": "0ecdcae38ddc3783",
+        "d": true,
         "name": "Merge Data",
-        "func": "let brightness = flow.get(\"brightness\");\nlet dhpstate = flow.get(\"dhpState\");\nlet miststate = flow.get(\"mistState\");\nlet lastaction = flow.get(\"lastAction\");\n\nif (brightness != undefined && dhpstate != undefined && miststate != undefined) {\n    msg.payload = {\n        studentid: 0,\n        nickname: \"ENCLOSURE STATUS\",\n        //temp: temperature,\n        //hum: humidity,\n        rain: brightness,\n        windspeed: dhpstate ? 1 : 0,\n        winddir: miststate ? 1 : 0,\n        message: lastaction,\n        valid: true,\n    }\n    return msg;\n} else {\n    return null;\n}",
+        "func": "let brightness = flow.get(\"brightness\");\nlet dhpstate = flow.get(\"dhpState\");\nlet miststate = flow.get(\"mistState\");\nlet lastaction = flow.get(\"lastAction\");\n\nif (brightness != undefined && dhpstate != undefined && miststate != undefined && lastaction != undefined) {\n    msg.payload = {\n        studentid: 0,\n        nickname: \"ENCLOSURE STATUS\",\n        temp: 0, //Testing Value\n        hum: 0, //Testing Value\n        rain: brightness,\n        windspeed: dhpstate ? 1 : 0,\n        winddir: miststate ? 1 : 0,\n        message: lastaction,\n        valid: true,\n    }\n    return msg;\n} else {\n    return null;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 350,
         "y": 1480,
         "wires": [
             [
-                "5069a4376ee558a7"
+                "cb23c587bcc60d55"
             ]
         ]
     },
@@ -1342,17 +1275,125 @@
         "id": "58fe4f094da22623",
         "type": "function",
         "z": "0ecdcae38ddc3783",
-        "name": "DHP Last Action Check",
-        "func": "let lastDHPstate = flow.get(\"dhpState\") || 0;\n\nlet currentDHPstate = msg.payload;\n\nif (currentDHPstate != lastDHPstate) {\n    if (currentDHPstate == 1) {\n        flow.set(\"lastAction\", \"DHP Switched ON\");\n    } else {\n    flow.set(\"lastAction\", \"DHP Switched OFF\");\n    }\n    flow.set(\"dhpState\", currentDHPstate);\n}\nreturn null;",
+        "name": "Last Action Check",
+        "func": "let lastAction = msg.payload;\n\nswitch (lastAction) {\n    case \"aDHPon\":\n        flow.set(\"lastAction\", \"Auto DHP ON\");\n        break;\n\n    case \"aDHPoff\":\n        flow.set(\"lastAction\", \"Auto DHP OFF\");\n        break;\n\n    case \"mDHPon\":\n        flow.set(\"lastAction\", \"Override DHP ON\");\n        break;\n\n    case \"mDHPoff\":\n        flow.set(\"lastAction\", \"Override DHP OFF\");\n        break;\n\n    case \"aMist\":\n        flow.set(\"lastAction\", \"Auto Mist Cycle Completed\");\n        break;\n\n    case \"mMiston\":\n        flow.set(\"lastAction\", \"Override Mist ON\");\n        break;\n\n    case \"mMistoff\":\n        flow.set(\"lastAction\", \"Override Mist OFF\");\n        break;\n}\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 160,
+        "x": 410,
+        "y": 60,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "254f2afeb26fb0d4",
+        "type": "ui_switch",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "label": "LED Override",
+        "tooltip": "",
+        "group": "f38330cb9552c678",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 100,
+        "y": 1040,
+        "wires": [
+            [
+                "a0e6c253d9895024"
+            ]
+        ]
+    },
+    {
+        "id": "a0e6c253d9895024",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "LED Last Action Check",
+        "func": "let mode = msg.payload\nlet lastLEDmode = flow.get(\"LEDState\");\n\nif (mode != lastLEDmode) {\n    if (mode == true) {\n        flow.set(\"LEDState\", \"manual\");\n        flow.set(\"lastAction\", \"LED OVERRIDE\");\n    }\n\n    if (mode == false) {\n        flow.set(\"LEDState\", \"auto\");\n        flow.set(\"lastAction\", \"LED AUTO\");\n    }\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41fe29216b29329e",
+        "type": "inject",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "adc",
+        "payload": "560",
+        "payloadType": "num",
+        "x": 100,
+        "y": 980,
+        "wires": [
+            [
+                "70f77b536e5d15a2"
+            ]
+        ]
+    },
+    {
+        "id": "c24b6fd461f303fe",
+        "type": "ui_button",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "group": "e2983030b5eec8e8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Manual HTTP Upload",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 1400,
+        "wires": [
+            [
+                "57ae78f0df8be98a"
+            ]
         ]
     },
     {
@@ -1381,7 +1422,7 @@
         "type": "debug",
         "z": "4d4387372979be1b",
         "name": "debug 2",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
