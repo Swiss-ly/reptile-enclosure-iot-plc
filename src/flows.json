@@ -215,14 +215,6 @@
         "sessionExpiry": ""
     },
     {
-        "id": "da3a6916b75636b7",
-        "type": "ui_tab",
-        "name": "LDR Output",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "f38330cb9552c678",
         "type": "ui_group",
         "name": "Manual Override",
@@ -401,7 +393,8 @@
         "y": 100,
         "wires": [
             [
-                "6d6c056a06643345"
+                "6d6c056a06643345",
+                "58fe4f094da22623"
             ]
         ]
     },
@@ -640,7 +633,8 @@
         "y": 420,
         "wires": [
             [
-                "f0c7f79025fbaa5d"
+                "f0c7f79025fbaa5d",
+                "47d7f9073cb93139"
             ]
         ]
     },
@@ -1012,7 +1006,8 @@
             ],
             [
                 "2d92f1c7145b8885",
-                "0deb8a7f39a18b81"
+                "0deb8a7f39a18b81",
+                "a1ddb635a004dc13"
             ]
         ]
     },
@@ -1096,70 +1091,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 360,
-        "y": 1260,
-        "wires": []
-    },
-    {
-        "id": "e4a29095732ad818",
-        "type": "function",
-        "z": "0ecdcae38ddc3783",
-        "name": "Counter",
-        "func": "let counter = context.get('counter') || 0;\n\ncounter += 1;\nif (counter >= 100) {\n    counter = 0;\n};\n\ncontext.set('counter',counter)\nmsg = {payload:counter};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 1120,
-        "wires": [
-            [
-                "784351da31a3a993"
-            ]
-        ]
-    },
-    {
-        "id": "784351da31a3a993",
-        "type": "modbus-write",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "4",
-        "quantity": "1",
-        "server": "687271a22ceb2cba",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 1000,
-        "y": 1120,
-        "wires": [
-            [
-                "47cd8595b5d90da8"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "47cd8595b5d90da8",
-        "type": "debug",
-        "z": "0ecdcae38ddc3783",
-        "name": "debug 6",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1280,
-        "y": 1120,
+        "x": 320,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1239,9 +1172,9 @@
         "z": "0ecdcae38ddc3783",
         "name": "",
         "method": "GET",
-        "ret": "obj",
+        "ret": "txt",
         "paytoqs": "query",
-        "url": "https://example.com/",
+        "url": "https://example.com/upload{{{query}}}",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -1249,8 +1182,175 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 350,
+        "x": 770,
         "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "09ac55734b5c3a6f",
+        "type": "inject",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 310,
+        "y": 1380,
+        "wires": [
+            [
+                "03e82a87676f0d10"
+            ]
+        ]
+    },
+    {
+        "id": "5069a4376ee558a7",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 9",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "03e82a87676f0d10",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "function 1",
+        "func": "msg.payload = {\n    studentid: 0,\n    nickname: \"Snake Enclosure Status\",\n    temp: 20.2,\n    hum: 43,\n    rain: 0.03,\n    windspeed: 23,\n    winddir: 180,\n    message: \"Test\",\n    valid: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1380,
+        "wires": [
+            [
+                "cb23c587bcc60d55"
+            ]
+        ]
+    },
+    {
+        "id": "a1ddb635a004dc13",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "LED Brightness",
+        "func": "flow.set(\"brightness\", msg.payload);\nreturn null;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "47d7f9073cb93139",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Mister Last Action Check",
+        "func": "let lastMistState = flow.get(\"mistState\") || 0;\n\nlet currentMistState = msg.payload;\n\nif (currentMistState != lastMistState) {\n    if (currentMistState == 1) {\n        flow.set(\"lastAction\", \"Mister Switched ON\");\n    } else {\n        flow.set(\"lastAction\", \"Mister Switched OFF\");\n    }\n    flow.set(\"mistState\", currentMistState);\n}\nreturn null;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "51fe8e59a4a586cf",
+        "type": "inject",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 70,
+        "y": 1480,
+        "wires": [
+            [
+                "57ae78f0df8be98a"
+            ]
+        ]
+    },
+    {
+        "id": "57ae78f0df8be98a",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Merge Data",
+        "func": "let brightness = flow.get(\"brightness\");\nlet dhpstate = flow.get(\"dhpState\");\nlet miststate = flow.get(\"mistState\");\nlet lastaction = flow.get(\"lastAction\");\n\nif (brightness != undefined && dhpstate != undefined && miststate != undefined) {\n    msg.payload = {\n        studentid: 0,\n        nickname: \"ENCLOSURE STATUS\",\n        //temp: temperature,\n        //hum: humidity,\n        rain: brightness,\n        windspeed: dhpstate ? 1 : 0,\n        winddir: miststate ? 1 : 0,\n        message: lastaction,\n        valid: true,\n    }\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1480,
+        "wires": [
+            [
+                "5069a4376ee558a7"
+            ]
+        ]
+    },
+    {
+        "id": "61e82e1e1337b122",
+        "type": "comment",
+        "z": "0ecdcae38ddc3783",
+        "name": "Merges data from sensors for http upload",
+        "info": "",
+        "x": 1240,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "58fe4f094da22623",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "DHP Last Action Check",
+        "func": "let lastDHPstate = flow.get(\"dhpState\") || 0;\n\nlet currentDHPstate = msg.payload;\n\nif (currentDHPstate != lastDHPstate) {\n    if (currentDHPstate == 1) {\n        flow.set(\"lastAction\", \"DHP Switched ON\");\n    } else {\n    flow.set(\"lastAction\", \"DHP Switched OFF\");\n    }\n    flow.set(\"dhpState\", currentDHPstate);\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 160,
         "wires": [
             []
         ]
