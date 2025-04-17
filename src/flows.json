@@ -217,7 +217,7 @@
     {
         "id": "f38330cb9552c678",
         "type": "ui_group",
-        "name": "Manual Override",
+        "name": "Override Settings",
         "tab": "bc87e5c3527dec05",
         "order": 2,
         "disp": true,
@@ -259,53 +259,11 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 450,
-        "y": 160,
+        "x": 610,
+        "y": 200,
         "wires": [
             [
                 "f41f7cd473649f9a"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7ec9685d60c9f838",
-        "type": "debug",
-        "z": "0ecdcae38ddc3783",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "73615f7fb302d33b",
-        "type": "modbus-write",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "10",
-        "quantity": "1",
-        "server": "687271a22ceb2cba",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 640,
-        "y": 220,
-        "wires": [
-            [
-                "7ec9685d60c9f838"
             ],
             []
         ]
@@ -331,12 +289,10 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 80,
-        "y": 260,
+        "x": 240,
+        "y": 300,
         "wires": [
-            [
-                "cadedbd932e52903"
-            ]
+            []
         ]
     },
     {
@@ -366,8 +322,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 890,
-        "y": 160,
+        "x": 1050,
+        "y": 200,
         "wires": []
     },
     {
@@ -389,8 +345,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
-        "y": 160,
+        "x": 840,
+        "y": 200,
         "wires": [
             [
                 "6d6c056a06643345"
@@ -417,39 +373,13 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 100,
-        "y": 220,
+        "x": 260,
+        "y": 260,
         "wires": [
             [
-                "cadedbd932e52903",
-                "58fe4f094da22623"
+                "58fe4f094da22623",
+                "efddc17cb996f0ce"
             ]
-        ]
-    },
-    {
-        "id": "d16f55192314d28f",
-        "type": "modbus-write",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "9",
-        "quantity": "1",
-        "server": "687271a22ceb2cba",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 640,
-        "y": 320,
-        "wires": [
-            [
-                "7ec9685d60c9f838"
-            ],
-            []
         ]
     },
     {
@@ -472,62 +402,12 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 100,
-        "y": 320,
+        "x": 240,
+        "y": 360,
         "wires": [
             [
-                "f184600b83fade61",
-                "58fe4f094da22623"
-            ]
-        ]
-    },
-    {
-        "id": "cadedbd932e52903",
-        "type": "trigger",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "250",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 440,
-        "y": 220,
-        "wires": [
-            [
-                "73615f7fb302d33b"
-            ]
-        ]
-    },
-    {
-        "id": "f184600b83fade61",
-        "type": "trigger",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "500",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 440,
-        "y": 320,
-        "wires": [
-            [
-                "d16f55192314d28f"
+                "58fe4f094da22623",
+                "4bfa9c8719920271"
             ]
         ]
     },
@@ -554,8 +434,8 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 450,
-        "y": 480,
+        "x": 590,
+        "y": 700,
         "wires": [
             [
                 "4a39f5b3d37ab9dc",
@@ -576,8 +456,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 600,
+        "x": 1020,
+        "y": 820,
         "wires": []
     },
     {
@@ -607,8 +487,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 850,
-        "y": 480,
+        "x": 990,
+        "y": 700,
         "wires": []
     },
     {
@@ -630,8 +510,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
-        "y": 480,
+        "x": 800,
+        "y": 700,
         "wires": [
             [
                 "f0c7f79025fbaa5d"
@@ -655,8 +535,8 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 640,
-        "y": 640,
+        "x": 780,
+        "y": 860,
         "wires": [
             [
                 "6ab154464c1a6f22"
@@ -684,8 +564,8 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 100,
-        "y": 640,
+        "x": 240,
+        "y": 860,
         "wires": [
             [
                 "ef418cd01086092d",
@@ -710,8 +590,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 440,
-        "y": 640,
+        "x": 580,
+        "y": 860,
         "wires": [
             [
                 "33c52ace3b937164"
@@ -735,8 +615,8 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 640,
-        "y": 540,
+        "x": 780,
+        "y": 760,
         "wires": [
             [
                 "6ab154464c1a6f22"
@@ -765,8 +645,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 80,
-        "y": 580,
+        "x": 220,
+        "y": 800,
         "wires": [
             [
                 "e9c13b9f3499c8c4"
@@ -793,8 +673,8 @@
         "payloadType": "str",
         "topic": "",
         "topicType": "str",
-        "x": 100,
-        "y": 540,
+        "x": 240,
+        "y": 760,
         "wires": [
             [
                 "e9c13b9f3499c8c4",
@@ -819,8 +699,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 440,
-        "y": 540,
+        "x": 580,
+        "y": 760,
         "wires": [
             [
                 "085b8fef40c945e8"
@@ -844,40 +724,11 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 640,
-        "y": 760,
+        "x": 780,
+        "y": 980,
         "wires": [
             [],
             []
-        ]
-    },
-    {
-        "id": "23153d14728c9f6a",
-        "type": "ui_button",
-        "z": "0ecdcae38ddc3783",
-        "name": "",
-        "group": "f38330cb9552c678",
-        "order": 6,
-        "width": "0",
-        "height": "0",
-        "passthru": false,
-        "label": "Auto Mist Protocol",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "aMist",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 110,
-        "y": 760,
-        "wires": [
-            [
-                "98c7efeb492d7bdf",
-                "58fe4f094da22623"
-            ]
         ]
     },
     {
@@ -897,8 +748,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 440,
-        "y": 760,
+        "x": 580,
+        "y": 980,
         "wires": [
             [
                 "9eee8e61f9c29874"
@@ -911,8 +762,8 @@
         "z": "0ecdcae38ddc3783",
         "name": "Mist Sprayer",
         "info": "",
-        "x": 1070,
-        "y": 640,
+        "x": 1210,
+        "y": 860,
         "wires": []
     },
     {
@@ -921,8 +772,8 @@
         "z": "0ecdcae38ddc3783",
         "name": "Deep Heat Projector",
         "info": "",
-        "x": 1070,
-        "y": 280,
+        "x": 1330,
+        "y": 200,
         "wires": []
     },
     {
@@ -944,8 +795,8 @@
         "max": "1023",
         "step": "0",
         "className": "",
-        "x": 300,
-        "y": 900,
+        "x": 100,
+        "y": 1080,
         "wires": [
             [
                 "70f77b536e5d15a2"
@@ -976,8 +827,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 640,
-        "y": 920,
+        "x": 580,
+        "y": 1120,
         "wires": []
     },
     {
@@ -985,14 +836,14 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "Duty Cycle",
-        "func": "let source = msg.topic;\nlet val = msg.payload;\nlet ledState = flow.get(\"LEDState\");\n\nlet dutyCycle = (1 - (val - 454) / (990 - 454)) * 100; //Scales ADC value between 0-100 for PWM duty cycle.\nlet plcValue = Math.round(dutyCycle);\n\nif (plcValue < 10) plcValue  = 0; // Fully Off\nif (plcValue > 90) plcValue  = 100; // Fully On\n\n\nif (ledState == \"manual\" && source == \"override\") {\n    var msg1 = {payload: msg.payload.toString()}; //Remove this after implement auto\n    plcValue = { payload: plcValue};\n    \n    return [msg1, plcValue];\n}\n\nelse if (ledState == \"auto\" && source == \"adc\"){\n    var msg1 = { payload: msg.payload.toString()};   \n    plcValue = { payload: plcValue };\n    \n    return [msg1, plcValue];\n}\nreturn null;",
+        "func": "let source = msg.topic;\nlet val = msg.payload;\nlet ledState = flow.get(\"LEDState\");\n\nif (val == undefined) {\n    val = 560; // or whatever initial value you want\n    flow.set(\"adc\", val);\n}\n\nlet dutyCycle = (1 - (val - 454) / (990 - 454)) * 100; //Scales ADC value between 0-100 for PWM duty cycle.\nlet plcValue = Math.round(dutyCycle);\n\nif (plcValue < 10) plcValue  = 0; // Fully Off\nif (plcValue > 90) plcValue  = 100; // Fully On\n\n\nif (ledState == \"manual\" && source == \"override\") {\n    var msg1 = {payload: msg.payload.toString()}; //Remove this after implement auto\n    plcValue = { payload: plcValue};\n    \n    return [msg1, plcValue];\n}\n\nelse if (ledState == \"auto\" && source == \"adc\"){\n    var msg1 = { payload: msg.payload.toString()};   \n    plcValue = { payload: plcValue };\n    \n    return [msg1, plcValue];\n}\nreturn null;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 980,
+        "y": 1160,
         "wires": [
             [
                 "5840e7f5de411578"
@@ -1022,8 +873,8 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 880,
-        "y": 1080,
+        "x": 780,
+        "y": 1220,
         "wires": [
             [],
             []
@@ -1036,7 +887,7 @@
         "name": "LED",
         "info": "",
         "x": 1070,
-        "y": 1000,
+        "y": 1180,
         "wires": []
     },
     {
@@ -1063,7 +914,7 @@
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
         "x": 130,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "57334a27243b71e8"
@@ -1084,7 +935,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
-        "y": 1220,
+        "y": 1400,
         "wires": []
     },
     {
@@ -1101,7 +952,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 860,
-        "y": 1180,
+        "y": 1360,
         "wires": []
     },
     {
@@ -1111,7 +962,7 @@
         "name": "Reads PWM LED Output",
         "info": "",
         "x": 670,
-        "y": 1220,
+        "y": 1400,
         "wires": []
     },
     {
@@ -1126,8 +977,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 440,
+        "x": 800,
+        "y": 660,
         "wires": []
     },
     {
@@ -1155,7 +1006,7 @@
         "diff": false,
         "className": "",
         "x": 560,
-        "y": 1100,
+        "y": 1280,
         "wires": []
     },
     {
@@ -1175,7 +1026,7 @@
         "senderr": false,
         "headers": [],
         "x": 550,
-        "y": 1480,
+        "y": 1660,
         "wires": [
             [
                 "5069a4376ee558a7"
@@ -1195,7 +1046,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 1480,
+        "y": 1660,
         "wires": []
     },
     {
@@ -1210,7 +1061,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 1160,
+        "y": 1340,
         "wires": [
             [],
             []
@@ -1220,6 +1071,7 @@
         "id": "51fe8e59a4a586cf",
         "type": "inject",
         "z": "0ecdcae38ddc3783",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -1234,7 +1086,7 @@
         "payload": "",
         "payloadType": "str",
         "x": 70,
-        "y": 1480,
+        "y": 1660,
         "wires": [
             [
                 "57ae78f0df8be98a"
@@ -1245,16 +1097,15 @@
         "id": "57ae78f0df8be98a",
         "type": "function",
         "z": "0ecdcae38ddc3783",
-        "d": true,
         "name": "Merge Data",
-        "func": "let brightness = flow.get(\"brightness\");\nlet dhpstate = flow.get(\"dhpState\");\nlet miststate = flow.get(\"mistState\");\nlet lastaction = flow.get(\"lastAction\");\n\nif (brightness != undefined && dhpstate != undefined && miststate != undefined && lastaction != undefined) {\n    msg.payload = {\n        studentid: 0,\n        nickname: \"ENCLOSURE STATUS\",\n        temp: 0, //Testing Value\n        hum: 0, //Testing Value\n        rain: brightness,\n        windspeed: dhpstate ? 1 : 0,\n        winddir: miststate ? 1 : 0,\n        message: lastaction,\n        valid: true,\n    }\n    return msg;\n} else {\n    return null;\n}",
+        "func": "let brightness = flow.get(\"brightness\");\nlet dhpstate = flow.get(\"dhpState\");\nlet miststate = flow.get(\"mistState\");\nlet lastaction = flow.get(\"lastAction\");\nlet temperature = flow.get(\"temp\");\nlet humidity = flow.get(\"hum\");\nnode.warn({\n    brightness,\n    dhpstate,\n    miststate,\n    lastaction,\n    temperature,\n    humidity\n});\n\nif (brightness != undefined && dhpstate != undefined && miststate != undefined && lastaction != undefined && temperature != undefined && humidity != undefined) {\n    msg.payload = {\n        studentid: 0,\n        nickname: \"ENCLOSURE STATUS\",\n        temp: temperature,\n        hum: humidity,\n        rain: brightness,\n        windspeed: dhpstate ? 1 : 0,\n        winddir: miststate ? 1 : 0,\n        message: lastaction,\n        valid: true,\n    }\n    return msg;\n} else {\n    return null;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 1480,
+        "y": 1660,
         "wires": [
             [
                 "cb23c587bcc60d55"
@@ -1268,7 +1119,7 @@
         "name": "Merges data from sensors for http upload",
         "info": "",
         "x": 1240,
-        "y": 1480,
+        "y": 1660,
         "wires": []
     },
     {
@@ -1276,14 +1127,14 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "Last Action Check",
-        "func": "let lastAction = msg.payload;\n\nswitch (lastAction) {\n    case \"aDHPon\":\n        flow.set(\"lastAction\", \"Auto DHP ON\");\n        break;\n\n    case \"aDHPoff\":\n        flow.set(\"lastAction\", \"Auto DHP OFF\");\n        break;\n\n    case \"mDHPon\":\n        flow.set(\"lastAction\", \"Override DHP ON\");\n        break;\n\n    case \"mDHPoff\":\n        flow.set(\"lastAction\", \"Override DHP OFF\");\n        break;\n\n    case \"aMist\":\n        flow.set(\"lastAction\", \"Auto Mist Cycle Completed\");\n        break;\n\n    case \"mMiston\":\n        flow.set(\"lastAction\", \"Override Mist ON\");\n        break;\n\n    case \"mMistoff\":\n        flow.set(\"lastAction\", \"Override Mist OFF\");\n        break;\n}\nreturn null;",
+        "func": "let lastAction = msg.payload;\n\nswitch (lastAction) {\n    case \"aDHPon\":\n        flow.set(\"lastAction\", \"Auto DHP ON\");\n        flow.set(\"dhpState\", 1);\n        break;\n\n    case \"aDHPoff\":\n        flow.set(\"lastAction\", \"Auto DHP OFF\");\n        flow.set(\"dhpState\", 0);\n        break;\n\n    case \"mDHPon\":\n        flow.set(\"lastAction\", \"Override DHP ON\");\n        flow.set(\"dhpState\", 1);\n        break;\n\n    case \"mDHPoff\":\n        flow.set(\"lastAction\", \"Override DHP OFF\");\n        flow.set(\"dhpState\", 0);\n        break;\n\n    case \"aMist\":\n        flow.set(\"lastAction\", \"Auto Mist Cycle Completed\");\n        flow.set(\"mistState\", 0);\n        break;\n\n    case \"mMiston\":\n        flow.set(\"lastAction\", \"Override Mist ON\");\n        flow.set(\"mistState\", 1);\n        break;\n\n    case \"mMistoff\":\n        flow.set(\"lastAction\", \"Override Mist OFF\");\n        flow.set(\"mistState\", 0);\n        break;\n}\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 60,
+        "x": 570,
+        "y": 100,
         "wires": [
             []
         ]
@@ -1297,8 +1148,8 @@
         "tooltip": "",
         "group": "f38330cb9552c678",
         "order": 3,
-        "width": "0",
-        "height": "0",
+        "width": "3",
+        "height": "1",
         "passthru": true,
         "decouple": "false",
         "topic": "topic",
@@ -1315,7 +1166,7 @@
         "animate": false,
         "className": "",
         "x": 100,
-        "y": 1040,
+        "y": 1220,
         "wires": [
             [
                 "a0e6c253d9895024"
@@ -1334,7 +1185,7 @@
         "finalize": "",
         "libs": [],
         "x": 280,
-        "y": 1040,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -1358,10 +1209,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "adc",
-        "payload": "560",
-        "payloadType": "num",
+        "payload": "adc",
+        "payloadType": "flow",
         "x": 100,
-        "y": 980,
+        "y": 1160,
         "wires": [
             [
                 "70f77b536e5d15a2"
@@ -1389,11 +1240,653 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 100,
-        "y": 1400,
+        "y": 1580,
         "wires": [
             [
                 "57ae78f0df8be98a"
             ]
+        ]
+    },
+    {
+        "id": "6461d57dd2ee6699",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Auto DHP Logic",
+        "func": "if (flow.get(\"DHPMode\") != \"auto\") return null;\n\nlet DHP = flow.get(\"temp\");\nlet lastDHP = flow.get(\"lastDHP\");\n\nif (DHP != lastDHP) {\n    if (DHP > 29) {\n        lastDHP = flow.set(\"lastDHP\", DHP);\n        flow.set(\"lastAction\", \"Auto DHP OFF\");\n        return [{payload: \"aDHPoff\" }, null];\n    }\n    if (DHP < 27) {\n        lastDHP = flow.set(\"lastDHP\", DHP);\n        flow.set(\"lastAction\", \"Auto DHP ON\");\n        return [null, {payload: \"aDHPon\" }];\n    }\n}\n\nreturn [null, null];\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "58fe4f094da22623",
+                "b1a80bd4c37c7d88",
+                "f6edc19a973af34d"
+            ],
+            [
+                "0b17a021711182dc",
+                "58fe4f094da22623"
+            ]
+        ]
+    },
+    {
+        "id": "51b84e54e793a81e",
+        "type": "modbus-write",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "9",
+        "quantity": "1",
+        "server": "687271a22ceb2cba",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 780,
+        "y": 480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "685617ef597a673d",
+        "type": "modbus-write",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "10",
+        "quantity": "1",
+        "server": "687271a22ceb2cba",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 780,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b1a80bd4c37c7d88",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 10",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f6edc19a973af34d",
+        "type": "trigger",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "685617ef597a673d"
+            ]
+        ]
+    },
+    {
+        "id": "0b17a021711182dc",
+        "type": "trigger",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 600,
+        "y": 480,
+        "wires": [
+            [
+                "51b84e54e793a81e"
+            ]
+        ]
+    },
+    {
+        "id": "92600d5a733c86bf",
+        "type": "ui_switch",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "label": "DHP Override",
+        "tooltip": "",
+        "group": "f38330cb9552c678",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 100,
+        "y": 540,
+        "wires": [
+            [
+                "7a215b7498c33669"
+            ]
+        ]
+    },
+    {
+        "id": "7a215b7498c33669",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "DHP Auto or Manual",
+        "func": "let mode = msg.payload;\n\nif (mode == true) flow.set(\"DHPMode\", \"manual\");\nif (mode == false) flow.set(\"DHPMode\", \"auto\")\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ec9685d60c9f838",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "73615f7fb302d33b",
+        "type": "modbus-write",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "10",
+        "quantity": "1",
+        "server": "687271a22ceb2cba",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 1060,
+        "y": 260,
+        "wires": [
+            [
+                "7ec9685d60c9f838"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d16f55192314d28f",
+        "type": "modbus-write",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "9",
+        "quantity": "1",
+        "server": "687271a22ceb2cba",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 1060,
+        "y": 360,
+        "wires": [
+            [
+                "7ec9685d60c9f838"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cadedbd932e52903",
+        "type": "trigger",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 880,
+        "y": 260,
+        "wires": [
+            [
+                "73615f7fb302d33b"
+            ]
+        ]
+    },
+    {
+        "id": "f184600b83fade61",
+        "type": "trigger",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "500",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 880,
+        "y": 360,
+        "wires": [
+            [
+                "d16f55192314d28f"
+            ]
+        ]
+    },
+    {
+        "id": "efddc17cb996f0ce",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Manual Mode Check",
+        "func": "if (flow.get(\"DHPMode\") != \"manual\") return null;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 260,
+        "wires": [
+            [
+                "cadedbd932e52903"
+            ]
+        ]
+    },
+    {
+        "id": "4bfa9c8719920271",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Manual Mode Check",
+        "func": "if (flow.get(\"DHPMode\") != \"manual\") return null;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "f184600b83fade61"
+            ]
+        ]
+    },
+    {
+        "id": "7e3392876e4ccaae",
+        "type": "mqtt in",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "topic": "v3/your-weather-application@ttn/devices/generate-red/up",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c0b6a2ef66ac65f2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 1800,
+        "wires": [
+            [
+                "b715cfb49ddc8156",
+                "6ae302b3e4d78998"
+            ]
+        ]
+    },
+    {
+        "id": "b4ab7274e0f876c9",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "b715cfb49ddc8156",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "What Port?",
+        "func": "var port = msg.payload.uplink_message.f_port;\nmsg.payload = {\n    fport: port,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1800,
+        "wires": [
+            [
+                "b4ab7274e0f876c9"
+            ]
+        ]
+    },
+    {
+        "id": "6ae302b3e4d78998",
+        "type": "switch",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "property": "payload.uplink_message.f_port",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 1880,
+        "wires": [
+            [
+                "128c1f9074428595"
+            ],
+            [
+                "668620c7d452985e"
+            ]
+        ]
+    },
+    {
+        "id": "128c1f9074428595",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "base64 to byte buffer",
+        "func": "var bytes = Buffer.from(msg.payload.uplink_message.frm_payload, 'base64');\n\nmsg.payload = bytes;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1860,
+        "wires": [
+            [
+                "bd5e3683b2f79d20"
+            ]
+        ]
+    },
+    {
+        "id": "668620c7d452985e",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "base64 to byte buffer",
+        "func": "var bytes = Buffer.from(msg.payload.uplink_message.frm_payload, 'base64');\n\nmsg.payload = bytes;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1900,
+        "wires": [
+            [
+                "f259f8c595a24c4f"
+            ]
+        ]
+    },
+    {
+        "id": "bd5e3683b2f79d20",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "decode",
+        "func": "if (flow.get(\"dataMode\") != \"test\") return null;\nvar bytes = msg.payload;\nvar rawTemp = ((bytes[8] << 8) + bytes[9])/100;\nvar temp = Math.round(rawTemp)/10;\nvar rawHum = (bytes[6] << 8) + bytes[7];\nvar hum = Math.round(rawHum)/10;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 1860,
+        "wires": [
+            [
+                "b4ab7274e0f876c9"
+            ]
+        ]
+    },
+    {
+        "id": "f259f8c595a24c4f",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "decode",
+        "func": "if (flow.get(\"dataMode\") != \"test\") return null;\n\nvar bytes = msg.payload;\nvar rawTemp = ((bytes[8] << 8) + bytes[9]) / 100;\nvar temp = Math.round(rawTemp) / 10;\nvar rawHum = (bytes[6] << 8) + bytes[7];\nvar hum = Math.round(rawHum) / 10;\nvar rainfall = ((bytes[10] << 8) + bytes[11]) * 14 + 450;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\nflow.set(\"adc\", rainfall) || 560;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 1900,
+        "wires": [
+            [
+                "b4ab7274e0f876c9"
+            ]
+        ]
+    },
+    {
+        "id": "cd4f4ce3536f3c68",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Auto Mist Logic",
+        "func": "let val = flow.get(\"hum\");\n\nif (val < 50) {\n    return {payload: \"aMist\"};\n}\nreturn null;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 980,
+        "wires": [
+            [
+                "58fe4f094da22623",
+                "98c7efeb492d7bdf"
+            ]
+        ]
+    },
+    {
+        "id": "c0c8ddfbb09fd54e",
+        "type": "mqtt in",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "topic": "v3/your-weather-application@ttn/devices/test-data/up",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c0b6a2ef66ac65f2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 2000,
+        "wires": [
+            [
+                "8ae851d0a1abdb84"
+            ]
+        ]
+    },
+    {
+        "id": "2466f8f04480bf1a",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "decode",
+        "func": "if (flow.get(\"dataMode\") != \"live\") return null;\n\nvar bytes = msg.payload;\nvar rawTemp = ((bytes[8] << 8) + bytes[9]) / 100;\nvar temp = Math.round(rawTemp) / 10;\nvar rawHum = (bytes[6] << 8) + bytes[7];\nvar hum = Math.round(rawHum) / 10;\nvar rainfall = ((bytes[10] << 8) + bytes[11]) * 14 + 450;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\nflow.set(\"adc\", rainfall) || 560;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 2000,
+        "wires": [
+            [
+                "b4ab7274e0f876c9"
+            ]
+        ]
+    },
+    {
+        "id": "8ae851d0a1abdb84",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "base64 to byte buffer",
+        "func": "var bytes = Buffer.from(msg.payload.uplink_message.frm_payload, 'base64');\n\nmsg.payload = bytes;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 2000,
+        "wires": [
+            [
+                "2466f8f04480bf1a"
+            ]
+        ]
+    },
+    {
+        "id": "d003c5e9156e50b4",
+        "type": "ui_switch",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "label": "Test Data Switch",
+        "tooltip": "",
+        "group": "e2983030b5eec8e8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 230,
+        "y": 1900,
+        "wires": [
+            [
+                "6db371fd38756e3f"
+            ]
+        ]
+    },
+    {
+        "id": "6db371fd38756e3f",
+        "type": "function",
+        "z": "0ecdcae38ddc3783",
+        "name": "Use Data?",
+        "func": "let mode = msg.payload;\n\nif (mode == true) flow.set(\"dataMode\", \"test\");\nif (mode == false) flow.set(\"dataMode\", \"live\")\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1900,
+        "wires": [
+            []
         ]
     },
     {
@@ -1413,7 +1906,9 @@
         "y": 140,
         "wires": [
             [
-                "8afcf975c58675a5"
+                "8afcf975c58675a5",
+                "d6cb3401c73dd473",
+                "0c15aa7adb6e1220"
             ]
         ]
     },
@@ -1422,15 +1917,15 @@
         "type": "debug",
         "z": "4d4387372979be1b",
         "name": "debug 2",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 180,
+        "x": 620,
+        "y": 400,
         "wires": []
     },
     {
@@ -1447,7 +1942,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 280,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "8afcf975c58675a5"
@@ -1468,7 +1963,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 300,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "8afcf975c58675a5"
@@ -1489,7 +1984,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 310,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "8afcf975c58675a5"
@@ -1510,10 +2005,154 @@
         "rh": 0,
         "inputs": 0,
         "x": 310,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "8afcf975c58675a5"
+            ]
+        ]
+    },
+    {
+        "id": "1dae79a6afd49075",
+        "type": "debug",
+        "z": "4d4387372979be1b",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d6cb3401c73dd473",
+        "type": "function",
+        "z": "4d4387372979be1b",
+        "name": "function 1",
+        "func": "var port = msg.payload.uplink_message.f_port;\nmsg.payload = {\n    fport: port,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "1dae79a6afd49075"
+            ]
+        ]
+    },
+    {
+        "id": "0c15aa7adb6e1220",
+        "type": "switch",
+        "z": "4d4387372979be1b",
+        "name": "",
+        "property": "payload.uplink_message.f_port",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "8e5dc3f9ff2a259a"
+            ],
+            [
+                "0ba6638ff5d06155"
+            ]
+        ]
+    },
+    {
+        "id": "8e5dc3f9ff2a259a",
+        "type": "function",
+        "z": "4d4387372979be1b",
+        "name": "base64 to byte buffer",
+        "func": "var bytes = Buffer.from(msg.payload.uplink_message.frm_payload, 'base64');\n\nmsg.payload = bytes;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 200,
+        "wires": [
+            [
+                "9bcd8689f8d9111a"
+            ]
+        ]
+    },
+    {
+        "id": "0ba6638ff5d06155",
+        "type": "function",
+        "z": "4d4387372979be1b",
+        "name": "base64 to byte buffer",
+        "func": "var bytes = Buffer.from(msg.payload.uplink_message.frm_payload, 'base64');\n\nmsg.payload = bytes;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 240,
+        "wires": [
+            [
+                "ee809b1fa6591879"
+            ]
+        ]
+    },
+    {
+        "id": "9bcd8689f8d9111a",
+        "type": "function",
+        "z": "4d4387372979be1b",
+        "name": "decode",
+        "func": "var bytes = msg.payload;\nvar temp = (bytes[8] << 8) + bytes[9];\nvar hum = (bytes[6] << 8) + bytes[7];\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 200,
+        "wires": [
+            [
+                "1dae79a6afd49075"
+            ]
+        ]
+    },
+    {
+        "id": "ee809b1fa6591879",
+        "type": "function",
+        "z": "4d4387372979be1b",
+        "name": "decode",
+        "func": "var bytes = msg.payload;\nvar temp = (bytes[8] << 8) + bytes[9];\nvar hum = (bytes[6] << 8) + bytes[7];\nvar rainfall = ((bytes[10] << 8) + bytes[11])*14+450;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 240,
+        "wires": [
+            [
+                "1dae79a6afd49075"
             ]
         ]
     }
