@@ -7,8 +7,8 @@ PROGRAM Start_Stop
     PB4 AT %QX1.4 : BOOL := FALSE;
     DHP AT %QX1.0 : BOOL;
     LEDOutput AT %QX0.0 : BOOL;
-    dutyCycle AT %MW19 : INT;
-    pwmcounter AT %MW4 : INT;
+    dutyCycle AT %MW0 : INT;
+    pwmcounter AT %MW1 : INT;
   END_VAR
   VAR
     _TMP_LT21_OUT : BOOL;
@@ -16,12 +16,12 @@ PROGRAM Start_Stop
 
   DHP := NOT(PB2) AND (DHP OR PB1);
   MIST := NOT(PB4) AND (MIST OR PB3);
+  _TMP_LT21_OUT := LT(pwmcounter, dutyCycle);
+  LEDOutput := _TMP_LT21_OUT;
   pwmcounter := pwmcounter + 1;
   IF pwmcounter >= 100 THEN
-    pwmcounter := 0;
+     pwmcounter := 0;
   END_IF;
-  _TMP_LT21_OUT := LT(pwmcounter, DutyCycle);
-  LEDOutput := _TMP_LT21_OUT;
 END_PROGRAM
 
 

@@ -740,15 +740,15 @@
         "op2": "false",
         "op1type": "bool",
         "op2type": "bool",
-        "duration": "3000",
+        "duration": "10",
         "extend": false,
         "overrideDelay": false,
-        "units": "ms",
+        "units": "s",
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 580,
+        "x": 570,
         "y": 980,
         "wires": [
             [
@@ -836,7 +836,7 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "Duty Cycle",
-        "func": "let source = msg.topic;\nlet val = msg.payload;\nlet ledState = flow.get(\"LEDState\");\n\nif (val == undefined) {\n    val = 560; // or whatever initial value you want\n    flow.set(\"adc\", val);\n}\n\nlet dutyCycle = (1 - (val - 454) / (990 - 454)) * 100; //Scales ADC value between 0-100 for PWM duty cycle.\nlet plcValue = Math.round(dutyCycle);\n\nif (plcValue < 10) plcValue  = 0; // Fully Off\nif (plcValue > 90) plcValue  = 100; // Fully On\n\n\nif (ledState == \"manual\" && source == \"override\") {\n    var msg1 = {payload: msg.payload.toString()}; //Remove this after implement auto\n    plcValue = { payload: plcValue};\n    \n    return [msg1, plcValue];\n}\n\nelse if (ledState == \"auto\" && source == \"adc\"){\n    var msg1 = { payload: msg.payload.toString()};   \n    plcValue = { payload: plcValue };\n    \n    return [msg1, plcValue];\n}\nreturn null;",
+        "func": "let source = msg.topic;\nlet val = msg.payload;\nlet ledState = flow.get(\"LEDState\");\n\nif (val == undefined) {\n    val = 900; \n    flow.set(\"adc\", val);\n}\n\nlet dutyCycle = (1 - (val - 454) / (990 - 454)) * 100; //Scales ADC value between 0-100 for PWM duty cycle.\nlet plcValue = Math.round(dutyCycle);\n\nif (plcValue < 10) plcValue  = 0; // Fully Off\nif (plcValue > 90) plcValue  = 100; // Fully On\n\n\nif (ledState == \"manual\" && source == \"override\") {\n    var msg1 = {payload: msg.payload.toString()}; //Remove this after implement auto\n    plcValue = { payload: plcValue};\n    \n    return [msg1, plcValue];\n}\n\nelse if (ledState == \"auto\" && source == \"adc\"){\n    var msg1 = { payload: msg.payload.toString()};   \n    plcValue = { payload: plcValue };\n    \n    return [msg1, plcValue];\n}\nreturn null;",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -866,7 +866,7 @@
         "showWarnings": true,
         "unitid": "1",
         "dataType": "HoldingRegister",
-        "adr": "19",
+        "adr": "1024",
         "quantity": "1",
         "server": "687271a22ceb2cba",
         "emptyMsgOnFail": false,
@@ -901,8 +901,8 @@
         "showErrors": false,
         "showWarnings": true,
         "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "19",
+        "dataType": "Coil",
+        "adr": "0",
         "quantity": "10",
         "rate": "50",
         "rateUnit": "ms",
@@ -913,11 +913,11 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 130,
+        "x": 70,
         "y": 1400,
         "wires": [
             [
-                "57334a27243b71e8"
+                "324f3edc7fee679c"
             ],
             []
         ]
@@ -931,11 +931,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
-        "y": 1400,
+        "y": 1480,
         "wires": []
     },
     {
@@ -1078,7 +1079,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "60",
+        "repeat": "3600",
         "crontab": "",
         "once": true,
         "onceDelay": "1",
@@ -1620,7 +1621,7 @@
         "type": "debug",
         "z": "0ecdcae38ddc3783",
         "name": "debug 12",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1764,7 +1765,7 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "Auto Mist Logic",
-        "func": "let val = flow.get(\"hum\");\n\nif (val < 50) {\n    return {payload: \"aMist\"};\n}\nreturn null;\n",
+        "func": "let val = flow.get(\"hum\");;\nlet mistState = flow.get(\"mistState\");\nlet lastMistTime = flow.get(\"lastMistTime\") || 0;\nlet mistTime = Date.now();\n\nif (mistState == 1) {\n    flow.set(\"lastMistTime\", mistTime);\n    return null; \n} else {\n    if (mistTime - lastMistTime >= 300000) {\n        if (val < 50) {\n            flow.set(\"lastMistTime\", mistTime);\n            return { payload: \"aMist\" };\n        }\n    } else {\n        return null;\n    }\n}\nreturn null;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1796,7 +1797,8 @@
         "y": 2000,
         "wires": [
             [
-                "8ae851d0a1abdb84"
+                "8ae851d0a1abdb84",
+                "24eb8d255bb55fac"
             ]
         ]
     },
@@ -1805,7 +1807,7 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "decode",
-        "func": "if (flow.get(\"dataMode\") != \"live\") return null;\n\nvar bytes = msg.payload;\nvar rawTemp = ((bytes[8] << 8) + bytes[9]) / 100;\nvar temp = Math.round(rawTemp) / 10;\nvar rawHum = (bytes[6] << 8) + bytes[7];\nvar hum = Math.round(rawHum) / 10;\nvar rainfall = ((bytes[10] << 8) + bytes[11]) * 14 + 450;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\nflow.set(\"adc\", rainfall) || 560;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nreturn msg;",
+        "func": "if (flow.get(\"dataMode\") != \"live\") return null;\n\nvar bytes = msg.payload;\n\nvar rawTemp = ((bytes[8] << 8) + bytes[9]) / 100;\nvar temp = Math.round(rawTemp) / 10;\n\nvar rawHum = (bytes[6] << 8) + bytes[7];\nvar hum = Math.round(rawHum) / 10;\n\nvar rainfall = ((bytes[10] << 8) + bytes[11]) * 14 + 450;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\nflow.set(\"adc\", rainfall) || 900;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nnode.warn(rainfall);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1815,7 +1817,7 @@
         "y": 2000,
         "wires": [
             [
-                "b4ab7274e0f876c9"
+                "24eb8d255bb55fac"
             ]
         ]
     },
@@ -1887,6 +1889,191 @@
         "y": 1900,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "24eb8d255bb55fac",
+        "type": "debug",
+        "z": "0ecdcae38ddc3783",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "facee8ce5d393358",
+        "type": "ui_led",
+        "z": "0ecdcae38ddc3783",
+        "order": 3,
+        "group": "7545ac8528b1c492",
+        "width": 0,
+        "height": 0,
+        "label": "LED",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 410,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "324f3edc7fee679c",
+        "type": "change",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload[0]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 1380,
+        "wires": [
+            [
+                "facee8ce5d393358"
+            ]
+        ]
+    },
+    {
+        "id": "c5c03aabb7f880d2",
+        "type": "modbus-read",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "1024",
+        "quantity": "10",
+        "rate": "100",
+        "rateUnit": "ms",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "687271a22ceb2cba",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 90,
+        "y": 1480,
+        "wires": [
+            [
+                "57334a27243b71e8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4f487f82b05439e1",
+        "type": "comment",
+        "z": "0ecdcae38ddc3783",
+        "name": "Reads Duty Cycle and PWM counter",
+        "info": "",
+        "x": 600,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "e8fe961d8414be5a",
+        "type": "comment",
+        "z": "0ecdcae38ddc3783",
+        "name": "Would be enabled in proper implementation",
+        "info": "",
+        "x": 170,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "e891a495d8ae24ba",
+        "type": "inject",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 980,
+        "wires": [
+            [
+                "cd4f4ce3536f3c68"
+            ]
+        ]
+    },
+    {
+        "id": "d5759163c3794633",
+        "type": "inject",
+        "z": "0ecdcae38ddc3783",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 50,
+        "y": 460,
+        "wires": [
+            [
+                "6461d57dd2ee6699"
+            ]
         ]
     },
     {
