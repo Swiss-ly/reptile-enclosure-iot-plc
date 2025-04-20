@@ -1109,7 +1109,8 @@
         "y": 1660,
         "wires": [
             [
-                "cb23c587bcc60d55"
+                "cb23c587bcc60d55",
+                "5069a4376ee558a7"
             ]
         ]
     },
@@ -1807,7 +1808,7 @@
         "type": "function",
         "z": "0ecdcae38ddc3783",
         "name": "decode",
-        "func": "if (flow.get(\"dataMode\") != \"live\") return null;\n\nvar bytes = msg.payload;\n\nvar rawTemp = ((bytes[8] << 8) + bytes[9]) / 100;\nvar temp = Math.round(rawTemp) / 10;\n\nvar rawHum = (bytes[6] << 8) + bytes[7];\nvar hum = Math.round(rawHum) / 10;\n\nvar rainfall = ((bytes[10] << 8) + bytes[11]) * 14 + 450;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\nflow.set(\"adc\", rainfall) || 900;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nnode.warn(rainfall);\nreturn msg;",
+        "func": "if (flow.get(\"dataMode\") != \"live\") return null;\n\nvar bytes = msg.payload;\n\nvar rawTemp = ((bytes[8] << 8) + bytes[9]) / 100;\nvar temp = Math.round(rawTemp) / 10;\n\nvar hum = ((bytes[6] << 8) + bytes[7]) / 10;\n\nvar rainfall = ((bytes[10] << 8) + bytes[11]) * 14 + 450;\nflow.set(\"temp\", temp);\nflow.set(\"hum\", hum);\nflow.set(\"adc\", rainfall) || 900;\n\nmsg.payload = {\n    humidity: hum,\n    temperature: temp,\n    adc: rainfall,\n}\nnode.warn(rainfall);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1896,7 +1897,7 @@
         "type": "debug",
         "z": "0ecdcae38ddc3783",
         "name": "debug 13",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
