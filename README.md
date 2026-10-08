@@ -4,6 +4,9 @@ An IoT system that keeps a snake enclosure's humidity, temperature and lighting 
 
 Node-RED handles the logic and the operator interface, OpenPLC drives the outputs, and three protocols connect the parts: MQTT for incoming sensor data, Modbus TCP between Node-RED and the PLC, and HTTP to log enclosure status to an external web service.
 
+<img width="897" height="405" alt="image" src="https://github.com/user-attachments/assets/e6d946af-8a0e-47a5-a9e6-cddb6936dbbe" />
+
+
 ## What's here
 
 | Path | Contents |
